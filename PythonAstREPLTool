@@ -1,0 +1,21 @@
+from langchain_openai import ChatOpenAI
+from langchain_experimental.agents.agent_toolkits.python.base import create_python_agent
+from langchain_experimental.tools.python.tool import PythonAstREPLTool
+
+# Initialize the language model (e.g., OpenAI's GPT model)
+#llm = ChatOpenAI(temperature=0, model="gpt-4o-mini") # Replace with your preferred LLM
+
+# Create an instance of the Python REPL tool
+python_repl = PythonAstREPLTool()
+
+# Create the Python agent
+agent_executor = create_python_agent(
+    llm=llm,
+    tool=python_repl,
+    verbose=True  # Set to True to see the agent's thought process
+)
+
+# Example usage: Ask the agent to perform a calculation
+question = "What is the sum of 12345 and 67890?"
+result = agent_executor.run(question)
+print(f"Result: {result}")
