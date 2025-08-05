@@ -1,0 +1,12 @@
+import pandas as pd
+from langchain_core.tools import Tool
+from langchain_experimental.utilities import PythonREPL
+
+# Create an instance of PythonREPL
+python_repl = PythonREPL()
+
+# Pass the dataframe into the globals dictionary of the PythonREPL instance
+python_repl.globals = {'df': df}
+
+# Use the tool with a user query and print the result
+python_repl.run('print(df["A"].mean())')
