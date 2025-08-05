@@ -1,3 +1,6 @@
+#This code example demonstrates how you can implement a dimensional model in Python using pandas DataFrames and then leverage this structure with LangChain and an LLM to 
+#generate personalized patient education materials.
+
 import pandas as pd
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
